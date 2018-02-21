@@ -28,6 +28,7 @@ To create a similar repo, follow the following steps:
     Note - Its important what you name your folder/module. this will become the name of the generate .wasm file.
 2. npm init in your folder of choice
 3. Setup your build step as needed in your package.json. I've hacked something together to use cargo and wasm-gc under the hood in this repo.
+    Note - Its a good idea to package your WASM into a requirable .js file for browser package users, as adding a file to the npm package to be read as a dependency can be tricky. See my `requirify-wasm` section in my package.json to see how to do this.
 4. create an index file that exports a function to return a promise that resolves to your module that is built. I would prefer if we could return our modules sycronously, but w/e.
 5. Publish.
 
