@@ -1,6 +1,6 @@
 {
   "name": "rust-wasm",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Example repo that demonstrates how to export a rust WASM binary",
   "main": "index.js",
   "scripts": {
