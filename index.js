@@ -1,5 +1,4 @@
-const fs = require('fs')
-const buf = fs.readFileSync('./build/module.min.wasm')
+const buf = require('./build/wasm.js')
 
 module.exports = async () => {
   return (await WebAssembly.instantiate(new Uint8Array(buf))).instance.exports
