@@ -1,0 +1,9 @@
+[package]
+name = "module"
+version = "0.1.0"
+authors = ["Glen Keane <glenkeane.94@gmail.com>"]
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
