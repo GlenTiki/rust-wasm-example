@@ -8,7 +8,7 @@ We don't care about publishing to cargo for now, we just want to get our WASM on
 
 You can install this module and start using the WASM generated within today!
 
-This library exports a function that returns a promise that resolves to the packaged WASM lib. This lib has a function `add_one` on it. Check test.js to see how its expected to be used.
+This library exports a lib that has a function `add_one` on it. Check test.js to see how its expected to be used.
 
 ## Local dev/setup
 
@@ -35,7 +35,7 @@ To create a similar repo, follow the following steps:
 2. npm init in your folder of choice
 3. Setup your build step as needed in your package.json. I've hacked something together to use cargo and wasm-gc under the hood in this repo.
     Note - Its a good idea to package your WASM into a requirable .js file for browser package users, as adding a file to the npm package to be read as a dependency can be tricky. See my `requirify-wasm` section in my package.json to see how to do this.
-4. create an index file that exports a function to return a promise that resolves to your module that is built. I would prefer if we could return our modules sycronously, but w/e.
+4. Create an index file that exports your module!
 5. Publish.
 
 I may have glossed over some details :P This example repo + the description above should be enough to get you started though! :D
