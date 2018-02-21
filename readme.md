@@ -6,6 +6,12 @@ We don't care about publishing to cargo for now, we just want to get our WASM on
 
 ## Usage
 
+You can install this module and start using the WASM generated within today!
+
+This library exports a function that returns a promise that resolves to the packaged WASM lib. This lib has a function `add_one` on it. Check test.js to see how its expected to be used.
+
+## Local dev/setup
+
 You need rust nightly installed and the toolchain needed to compile to wasm32-unknown-unknown. You need the wasm-gc module installed, too.
 
 First up, install [rustup](https://github.com/rust-lang-nursery/rustup.rs)
