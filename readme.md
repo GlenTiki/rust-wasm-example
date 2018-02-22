@@ -14,70 +14,69 @@ This library exports a lib that has a function `add_one` on it. Check test.js to
 
 I benchmarked the WASM generated against similar JS fuctionality. The output is collapsed below. The WASM generated can be up to 5x faster than JS when running a recursive factorial function, but when running a factorial function that uses a loop, the difference ends up being insignificant for larger factorials, and non-beneficial to use WASM for small factorials (js ended up 2x faster for `5!`).
 
-All benchmarks were run on a MacBook Pro (Retina, 13-inch, Early 2015) with 2.7 GHz Intel i5 CPU & 8 GB 1867 MHz DDR3 RAM using node v8.6.0
+All benchmarks were run on a MacBook Pro (Retina, 13-inch, Early 2015) with 2.7 GHz Intel i5 CPU & 8 GB 1867 MHz DDR3 RAM using node v8.6.0.
 
 <details>
 <summary>Benchmark output</summary>
-factorial WASM for increment 5 x 44,887,847 ops/sec ±14.47% (65 runs sampled)
-factorial JS for increment 5 x 93,934,846 ops/sec ±3.36% (86 runs sampled)
-Benchmark factorial for increment 5
-Fastest is factorial JS for increment 5
---------
-factorial WASM for increment 10 x 58,868,287 ops/sec ±1.39% (84 runs sampled)
-factorial JS for increment 10 x 54,040,767 ops/sec ±7.30% (79 runs sampled)
-Benchmark factorial for increment 10
-Fastest is factorial WASM for increment 10
---------
-factorial WASM for increment 20 x 35,854,560 ops/sec ±1.99% (89 runs sampled)
-factorial JS for increment 20 x 31,035,880 ops/sec ±2.70% (84 runs sampled)
-Benchmark factorial for increment 20
-Fastest is factorial WASM for increment 20
---------
-factorial WASM for increment 40 x 17,120,968 ops/sec ±7.02% (77 runs sampled)
-factorial JS for increment 40 x 13,932,862 ops/sec ±3.40% (85 runs sampled)
-Benchmark factorial for increment 40
-Fastest is factorial WASM for increment 40
---------
-factorial WASM for increment 80 x 8,029,735 ops/sec ±4.43% (82 runs sampled)
-factorial JS for increment 80 x 5,960,309 ops/sec ±6.79% (71 runs sampled)
-Benchmark factorial for increment 80
-Fastest is factorial WASM for increment 80
---------
-factorial WASM for increment 160 x 5,005,555 ops/sec ±4.18% (88 runs sampled)
-factorial JS for increment 160 x 4,608,722 ops/sec ±3.24% (88 runs sampled)
-Benchmark factorial for increment 160
-Fastest is factorial WASM for increment 160
---------
-recursive_factorial WASM for increment 5 x 62,107,376 ops/sec ±2.57% (84 runs sampled)
-recursive_factorial JS for increment 5 x 25,075,719 ops/sec ±2.85% (92 runs sampled)
-Benchmark recursiveFactorial for increment 5
-Fastest is recursive_factorial WASM for increment 5
---------
-recursive_factorial WASM for increment 10 x 52,741,036 ops/sec ±2.04% (88 runs sampled)
-recursive_factorial JS for increment 10 x 12,485,573 ops/sec ±1.78% (87 runs sampled)
-Benchmark recursiveFactorial for increment 10
-Fastest is recursive_factorial WASM for increment 10
---------
-recursive_factorial WASM for increment 20 x 31,810,722 ops/sec ±3.25% (90 runs sampled)
-recursive_factorial JS for increment 20 x 5,432,902 ops/sec ±0.54% (94 runs sampled)
-Benchmark recursiveFactorial for increment 20
-Fastest is recursive_factorial WASM for increment 20
---------
-recursive_factorial WASM for increment 40 x 13,918,201 ops/sec ±3.44% (81 runs sampled)
-recursive_factorial JS for increment 40 x 2,919,241 ops/sec ±1.73% (91 runs sampled)
-Benchmark recursiveFactorial for increment 40
-Fastest is recursive_factorial WASM for increment 40
---------
-recursive_factorial WASM for increment 80 x 8,184,447 ops/sec ±1.55% (88 runs sampled)
-recursive_factorial JS for increment 80 x 1,516,359 ops/sec ±2.53% (90 runs sampled)
-Benchmark recursiveFactorial for increment 80
-Fastest is recursive_factorial WASM for increment 80
---------
-recursive_factorial WASM for increment 160 x 5,023,411 ops/sec ±0.99% (94 runs sampled)
-recursive_factorial JS for increment 160 x 764,093 ops/sec ±2.52% (91 runs sampled)
-Benchmark recursiveFactorial for increment 160
-Fastest is recursive_factorial WASM for increment 160
---------
+factorial WASM for increment 5 x 44,887,847 ops/sec ±14.47% (65 runs sampled) <br/>
+factorial JS for increment 5 x 93,934,846 ops/sec ±3.36% (86 runs sampled) <br/>
+Benchmark factorial for increment 5 <br/>
+Fastest is factorial JS for increment 5 <br/>
+
+factorial WASM for increment 10 x 58,868,287 ops/sec ±1.39% (84 runs sampled) <br/>
+factorial JS for increment 10 x 54,040,767 ops/sec ±7.30% (79 runs sampled)<br/>
+Benchmark factorial for increment 10<br/>
+Fastest is factorial WASM for increment 10<br/>
+
+factorial WASM for increment 20 x 35,854,560 ops/sec ±1.99% (89 runs sampled)<br/>
+factorial JS for increment 20 x 31,035,880 ops/sec ±2.70% (84 runs sampled)<br/>
+Benchmark factorial for increment 20<br/>
+Fastest is factorial WASM for increment 20<br/>
+
+factorial WASM for increment 40 x 17,120,968 ops/sec ±7.02% (77 runs sampled)<br/>
+factorial JS for increment 40 x 13,932,862 ops/sec ±3.40% (85 runs sampled)<br/>
+Benchmark factorial for increment 40<br/>
+Fastest is factorial WASM for increment 40<br/>
+
+factorial WASM for increment 80 x 8,029,735 ops/sec ±4.43% (82 runs sampled)<br/>
+factorial JS for increment 80 x 5,960,309 ops/sec ±6.79% (71 runs sampled)<br/>
+Benchmark factorial for increment 80<br/>
+Fastest is factorial WASM for increment 80<br/>
+
+factorial WASM for increment 160 x 5,005,555 ops/sec ±4.18% (88 runs sampled)<br/>
+factorial JS for increment 160 x 4,608,722 ops/sec ±3.24% (88 runs sampled)<br/>
+Benchmark factorial for increment 160<br/>
+Fastest is factorial WASM for increment 160<br/>
+
+recursive_factorial WASM for increment 5 x 62,107,376 ops/sec ±2.57% (84 runs sampled)<br/>
+recursive_factorial JS for increment 5 x 25,075,719 ops/sec ±2.85% (92 runs sampled)<br/>
+Benchmark recursiveFactorial for increment 5<br/>
+Fastest is recursive_factorial WASM for increment 5<br/>
+
+recursive_factorial WASM for increment 10 x 52,741,036 ops/sec ±2.04% (88 runs sampled)<br/>
+recursive_factorial JS for increment 10 x 12,485,573 ops/sec ±1.78% (87 runs sampled)<br/>
+Benchmark recursiveFactorial for increment 10<br/>
+Fastest is recursive_factorial WASM for increment 10<br/>
+
+recursive_factorial WASM for increment 20 x 31,810,722 ops/sec ±3.25% (90 runs sampled)<br/>
+recursive_factorial JS for increment 20 x 5,432,902 ops/sec ±0.54% (94 runs sampled)<br/>
+Benchmark recursiveFactorial for increment 20<br/>
+Fastest is recursive_factorial WASM for increment 20<br/>
+
+recursive_factorial WASM for increment 40 x 13,918,201 ops/sec ±3.44% (81 runs sampled)<br/>
+recursive_factorial JS for increment 40 x 2,919,241 ops/sec ±1.73% (91 runs sampled)<br/>
+Benchmark recursiveFactorial for increment 40<br/>
+Fastest is recursive_factorial WASM for increment 40<br/>
+
+recursive_factorial WASM for increment 80 x 8,184,447 ops/sec ±1.55% (88 runs sampled)<br/>
+recursive_factorial JS for increment 80 x 1,516,359 ops/sec ±2.53% (90 runs sampled)<br/>
+Benchmark recursiveFactorial for increment 80<br/>
+Fastest is recursive_factorial WASM for increment 80<br/>
+
+recursive_factorial WASM for increment 160 x 5,023,411 ops/sec ±0.99% (94 runs sampled)<br/>
+recursive_factorial JS for increment 160 x 764,093 ops/sec ±2.52% (91 runs sampled)<br/>
+Benchmark recursiveFactorial for increment 160<br/>
+Fastest is recursive_factorial WASM for increment 160<br/>
 </details>
 
 ## Local dev/setup
