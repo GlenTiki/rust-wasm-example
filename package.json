@@ -9,6 +9,7 @@
     "gc-wasm": "wasm-gc target/wasm32-unknown-unknown/release/module.wasm -o build/module.min.wasm",
     "requirify-wasm": "echo \"module.exports = new Uint8Array([`node -e \"console.log(new Uint8Array(fs.readFileSync('./build/module.min.wasm')).toString())\"`])\" > ./build/wasm.js",
     "postbuild": "npm run gc-wasm && npm run requirify-wasm",
+    "benchmark": "npm run build && node ./benchmark.js",
     "pretest": "npm run build",
     "test": "standard && tap ./test.js && cargo test",
     "prepack": "npm run test"
@@ -21,6 +22,7 @@
   "author": "Glen Keane",
   "license": "MIT",
   "dependencies": {
+    "benchmark": "^2.1.4",
     "mkdirp": "^0.5.1",
     "rimraf": "^2.6.2",
     "standard": "^11.0.0",
