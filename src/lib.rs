@@ -27,3 +27,13 @@ pub extern fn recursiveFactorial(num: u32) -> u32 {
   if num <= 0 { return 1 }
   return num * recursiveFactorial(num - 1)
 }
+
+extern { fn exampleFunction() -> u32; }
+
+#[no_mangle]
+pub extern "C" fn callJs () -> u32 {
+  unsafe {
+    let x = exampleFunction();
+    return x
+  }
+}
