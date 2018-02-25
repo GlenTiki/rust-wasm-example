@@ -12,7 +12,7 @@ You can install this module and start using the WASM generated within today!
 npm i rust-wasm
 ```
 
-This library exports a lib that has the functions `add_one`, `factorial` and `recursiveFactorial` within it.
+This library exports a lib that has the functions `add_one`, `factorial`, `recursiveFactorial` and `callJs` within it.
 
 Example:
 ```js
@@ -20,6 +20,7 @@ const lib = require('rust-wasm')
 lib.add_one(41)
 lib.factorial(10)
 lib.recursiveFactorial(10)
+lib.callJs()
 ```
 
 ## Benchmarks
