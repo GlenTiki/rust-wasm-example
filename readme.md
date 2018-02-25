@@ -8,7 +8,19 @@ We don't care about publishing to cargo for now, we just want to get our WASM on
 
 You can install this module and start using the WASM generated within today!
 
-This library exports a lib that has a function `add_one` on it. Check test.js to see how its expected to be used.
+```sh
+npm i rust-wasm
+```
+
+This library exports a lib that has the functions `add_one`, `factorial` and `recursiveFactorial` within it.
+
+Example:
+```js
+const lib = require('rust-wasm')
+lib.add_one(41)
+lib.factorial(10)
+lib.recursiveFactorial(10)
+```
 
 ## Benchmarks
 
