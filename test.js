@@ -2,13 +2,6 @@ const {test} = require('tap')
 const lib = require('./index')
 
 test('it loaded the module and worked!', async (t) => {
-  t.equal(lib.add_one(55), 56)
-  t.equal(lib.add_one(66), 67)
-  t.equal(lib.add_one(32), 33)
-  t.end()
-})
-
-test('it can call a function from js!', async (t) => {
-  t.equal(lib.callJs(), 42)
+  t.equal(lib.digest('Type here'), 'd2c87462cd5d408c3264250d0b81218a08b51863')
   t.end()
 })

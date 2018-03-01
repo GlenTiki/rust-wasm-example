@@ -1,39 +1,42 @@
-#[cfg(test)]
-mod tests {
-    use add_one;
+extern crate sha1;
 
-    #[test]
-    fn it_works() {
-        assert_eq!(add_one(3), 4);
+use std::mem;
+use std::ffi::{CString, CStr};
+use std::os::raw::{c_char, c_void};
+
+use sha1::Sha1;
+
+#[no_mangle]
+pub extern "C" fn alloc(size: usize) -> *mut c_void {
+    let mut buf = Vec::with_capacity(size);
+    let ptr = buf.as_mut_ptr();
+    mem::forget(buf);
+    return ptr as *mut c_void;
+}
+
+#[no_mangle]
+pub extern "C" fn dealloc(ptr: *mut c_void, cap: usize) {
+    unsafe  {
+        let _buf = Vec::from_raw_parts(ptr, 0, cap);
     }
 }
 
 #[no_mangle]
-pub extern fn add_one(a: u32) -> u32 {
-    a + 1
+pub extern "C" fn dealloc_str(ptr: *mut c_char) {
+    unsafe {
+        let _ = CString::from_raw(ptr);
+    }
 }
 
 #[no_mangle]
-pub extern fn factorial(num: u32) -> u32 {
-  let mut result = 1;
-  for i in 1..(num+1) {
-    result = i * result;
-  }
-  return result;
-}
+pub extern "C" fn digest(data: *mut c_char) -> *mut c_char {
+    unsafe {
+        let data = CStr::from_ptr(data);
 
-#[no_mangle]
-pub extern fn recursiveFactorial(num: u32) -> u32 {
-  if num <= 0 { return 1 }
-  return num * recursiveFactorial(num - 1)
-}
-
-extern { fn exampleFunction() -> u32; }
-
-#[no_mangle]
-pub extern "C" fn callJs () -> u32 {
-  unsafe {
-    let x = exampleFunction();
-    return x
-  }
+        let mut m = Sha1::new();
+        m.update(data.to_bytes());
+        let dgst = m.digest().to_string();
+        let s = CString::new(dgst).unwrap();
+        s.into_raw()
+    }
 }
