@@ -34,7 +34,8 @@ const Module = {
   digest: mod.exports.digest,
   memory: mod.exports.memory
 }
-const Sha1 = {
+
+module.exports = {
   digest: function (str) {
     let inptr = newString(Module, str)
     let outptr = Module.digest(inptr)
@@ -44,5 +45,3 @@ const Sha1 = {
     return result
   }
 }
-
-module.exports = Sha1
